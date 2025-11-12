@@ -1,5 +1,5 @@
 # Emotion Classifier
-# 🎭 Emotion Classifier (GoEmotions • Multi-Label Baseline)
+# Emotion Classifier (GoEmotions • Multi-Label Baseline)
 
 > Classifies emotions from short text using the **GoEmotions (simplified)** dataset and a **TF-IDF + One-Vs-Rest Logistic Regression** baseline.
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 🚀 Overview
+## Overview
 
 - **Task:** Multi-label emotion classification (a text can have multiple emotions).
 - **Dataset:** GoEmotions (simplified label set) via Hugging Face `datasets`.
@@ -21,7 +21,7 @@ This repo shows a solid end-to-end baseline: environment setup, data loading, mo
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 - Python 3.11
 - scikit-learn, pandas, numpy
@@ -31,7 +31,7 @@ This repo shows a solid end-to-end baseline: environment setup, data loading, mo
 
 ---
 
-## 📊 Results (Baseline)
+## Results (Baseline)
 
 **Evaluation style:** multi-label, reported with *samples-average* metrics.  
 **Threshold tuning:** swept `t ∈ [0.20 … 0.50]`, picked best by samples-F1.
@@ -46,7 +46,7 @@ This repo shows a solid end-to-end baseline: environment setup, data loading, mo
 > - Top-k returns exactly k emotions per text (nice for demos); thresholding is better for research-style evaluation.
 
 ---
-## 📁 Project Structure
+## Project Structure
 
 emotion-classifier/
 │
@@ -66,7 +66,7 @@ emotion-classifier/
 └── .gitignore
 
 ---
-## ⚙️ Reproduce Locally
+## Reproduce Locally
 
 ```bash
 # create & activate env
@@ -87,7 +87,7 @@ k = 2
 
 ---
 
-### 🏷️ (Optional) Repo polish on GitHub
+### (Optional) Repo polish on GitHub
 - **Description:** “Multi-label emotion classification baseline on GoEmotions (scikit-learn).”
 - **Topics/Tags:** `nlp`, `machine-learning`, `text-classification`, `goemotions`, `multilabel`, `scikit-learn`, `python`.
 - **Default branch:** main (if not already).
