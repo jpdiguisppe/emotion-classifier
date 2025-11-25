@@ -94,14 +94,5 @@ k = 2
 
 ---
 
-### Commit & push the README
-In your VS Code terminal:
 
-```bash
-cd ~/Projects/emotion-classifier   # adjust if needed
-git add README.md
-git commit -m "Add professional README and baseline results (t=0.20, samples-F1=0.54)"
-git push
-
-afe727a (README Update)
 
