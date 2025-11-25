@@ -85,14 +85,5 @@ pred = (proba >= BEST_THRESHOLD).astype(int)
 k = 2
 # pick the two highest-probability emotions per text
 
----
-
-### (Optional) Repo polish on GitHub
-- **Description:** “Multi-label emotion classification baseline on GoEmotions (scikit-learn).”
-- **Topics/Tags:** `nlp`, `machine-learning`, `text-classification`, `goemotions`, `multilabel`, `scikit-learn`, `python`.
-- **Default branch:** main (if not already).
-
----
-
 
 
