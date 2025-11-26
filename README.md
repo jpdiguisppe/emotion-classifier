@@ -45,27 +45,7 @@ This repo shows a solid end-to-end baseline: environment setup, data loading, mo
 > - Thresholding (t=0.20) reflects variable number of emotions per text and gave the best samples-F1 in this baseline.
 > - Top-k returns exactly k emotions per text (nice for demos); thresholding is better for research-style evaluation.
 
----
-## Project Structure
 
-emotion-classifier/
-│
-├── notebooks/
-│ └── 01_baseline_goemotions_multilabel.ipynb
-│
-├── models/ # saved artifacts (gitignored)
-│ └── tfidf_logreg_goemotions_multilabel.joblib
-│
-├── src/ # optional scripts
-│ ├── train.py
-│ ├── predict.py
-│ └── utils.py
-│
-├── reports/ # txt reports/metrics (optional)
-├── README.md
-└── .gitignore
-
----
 ## Reproduce Locally
 
 ```bash
