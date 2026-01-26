@@ -39,7 +39,7 @@ This repo shows a solid end-to-end baseline: environment setup, data loading, mo
 | Setting | Samples-F1 | Samples-Precision | Samples-Recall |
 |--------:|:-----------:|:-----------------:|:--------------:|
 | **Threshold** `t = 0.20` | **0.54** | 0.54 | 0.58 |
-| Top-k `k = 2` | ~0.54 | (varies) | (varies) |
+| Top-k `k = 2` | 0.48 | 0.38 | 0.68 |
 
 > Notes:
 > - Thresholding (t=0.20) reflects variable number of emotions per text and gave the best samples-F1 in this baseline.
