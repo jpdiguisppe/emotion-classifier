@@ -1,4 +1,3 @@
-# Emotion Classifier
 # Emotion Classifier (GoEmotions • Multi-Label Baseline)
 # To see code, graphs, and data --> notebooks --> 01_baseline_goemotions_multilabel.ipynb
 
