@@ -2,6 +2,7 @@
 # Emotion Classifier (GoEmotions • Multi-Label Baseline)
 
 > Classifies emotions from short text using the **GoEmotions (simplified)** dataset and a **TF-IDF + One-Vs-Rest Logistic Regression** baseline.
+> To see code, graphs, and data --> notebooks --> 01_baseline_goemotions_multilabel.ipynb
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-Model-orange?logo=scikitlearn)
