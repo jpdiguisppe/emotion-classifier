@@ -1,69 +1,50 @@
-# Emotion Classifier (GoEmotions • Multi-Label Baseline)
-# To see code, graphs, and data --> notebooks --> 01_baseline_goemotions_multilabel.ipynb
+# Emotion Classifier
 
-> Classifies emotions from short text using the **GoEmotions (simplified)** dataset and a **TF-IDF + One-Vs-Rest Logistic Regression** baseline.
+A **multi-label emotion classification** baseline built in Python with scikit-learn. Given short text, the model can predict more than one emotion using TF-IDF text features and one-vs-rest logistic regression.
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-Model-orange?logo=scikitlearn)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-Active-success)
+**[Open the training and evaluation notebook](notebooks/01_baseline_goemotions_multilabel.ipynb)**
 
----
+## How it works
 
-## Overview
+1. Load the simplified **GoEmotions** dataset with Hugging Face `datasets`.
+2. Convert emotion-label lists into multi-label targets.
+3. Transform text into TF-IDF features.
+4. Fit a one-vs-rest logistic regression classifier.
+5. Evaluate precision, recall, and F1, and compare thresholding with top-k predictions.
 
-- **Task:** Multi-label emotion classification (a text can have multiple emotions).
-- **Dataset:** GoEmotions (simplified label set) via Hugging Face `datasets`.
-- **Baseline model:** `TfidfVectorizer` → `OneVsRestClassifier(LogisticRegression)`.
-- **Notebook:** `notebooks/01_baseline_goemotions_multilabel.ipynb`.
+The notebook contains the data preparation, training, evaluation, and visualization steps. This repository is a notebook-based ML experiment, not a deployed prediction service.
 
-This repo shows a solid end-to-end baseline: environment setup, data loading, model training, threshold tuning, evaluation, and saved artifacts.
+## Reported baseline results
 
----
+The notebook's reported evaluation uses **samples-averaged** multi-label metrics:
 
-## Tech Stack
+| Prediction approach | Samples F1 | Samples precision | Samples recall |
+| --- | ---: | ---: | ---: |
+| Probability threshold = 0.20 | **0.54** | 0.54 | 0.58 |
+| Top 2 predicted labels | 0.48 | 0.38 | 0.68 |
 
-- Python 3.11
-- scikit-learn, pandas, numpy
-- datasets (Hugging Face)
-- Jupyter (VS Code)
-- Conda/Miniforge for environments
+Thresholding can return a variable number of labels for each text, while top-k returns a fixed number. These are results from this baseline and dataset; they are not a claim of production performance on arbitrary text.
 
----
+## Tools
 
-## Results (Baseline)
+Python 3.11 · scikit-learn · pandas · NumPy · Hugging Face datasets · Jupyter
 
-**Evaluation style:** multi-label, reported with *samples-average* metrics.  
-**Threshold tuning:** swept `t ∈ [0.20 … 0.50]`, picked best by samples-F1.
+## Run the notebook
 
-| Setting | Samples-F1 | Samples-Precision | Samples-Recall |
-|--------:|:-----------:|:-----------------:|:--------------:|
-| **Threshold** `t = 0.20` | **0.54** | 0.54 | 0.58 |
-| Top-k `k = 2` | 0.48 | 0.38 | 0.68 |
-
-> Notes:
-> - Thresholding (t=0.20) reflects variable number of emotions per text and gave the best samples-F1 in this baseline.
-> - Top-k returns exactly k emotions per text (nice for demos); thresholding is better for research-style evaluation.
-
-
-## Reproduce Locally
+From a local clone of this repository:
 
 ```bash
-# create & activate env
 conda create -n emotion python=3.11 -y
 conda activate emotion
 conda install -y numpy pandas scikit-learn matplotlib jupyter ipykernel
-python -m ipykernel install --user --name emotion --display-name "Python (Emotion ML Env)"
+python -m pip install datasets
+jupyter notebook notebooks/01_baseline_goemotions_multilabel.ipynb
+```
 
-# open the notebook in VS Code and select the "Python (Emotion ML Env)" kernel
-code .
-BEST_THRESHOLD = 0.20
-proba = model.predict_proba(["i'm nervous but excited"])
-pred = (proba >= BEST_THRESHOLD).astype(int)
-# if no labels pass threshold, fallback to top-1
-# always returns k labels per input
-k = 2
-# pick the two highest-probability emotions per text
+The notebook downloads GoEmotions when run, so an internet connection is needed for the initial data load. You can also open it in VS Code and choose the `emotion` Python environment as the notebook kernel.
 
+## What I learned
 
+This project explores the difference between single-label and multi-label classification, how decision thresholds change precision and recall, and how to interpret a baseline before considering more complex models.
 
+**Starting point:** [`notebooks/01_baseline_goemotions_multilabel.ipynb`](notebooks/01_baseline_goemotions_multilabel.ipynb).
